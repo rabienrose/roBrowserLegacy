@@ -323,7 +323,7 @@ define(function( require )
 		Network.connect( _server.address, _server.port, function( success ) {
 			// Fail to connect...
 			if ( !success ) {
-				UIManager.showErrorBox(DB.getMessage(1));
+				// UIManager.showErrorBox(DB.getMessage(1));
 				return;
 			}
 

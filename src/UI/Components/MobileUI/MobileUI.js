@@ -26,7 +26,8 @@ define(function(require)
 	var Events          = require('Core/Events');
 	var htmlText		= require('text!./MobileUI.html');
 	var cssText			= require('text!./MobileUI.css');
-	
+	var ChatBox			= require('UI/Components/ChatBox/ChatBox');
+
 	/**
 	 * Create Component
 	 */
@@ -127,6 +128,13 @@ define(function(require)
 	 * Toggles touch targeting
 	 */
 	function toggleTouchTargeting(){
+		var width = window.innerWidth || document.body.offsetWidth;
+		var height = window.innerHeight || document.body.offsetHeight;
+		ChatBox.addText(
+			'Screen dimensions: ' + width + 'x' + height,
+			ChatBox.TYPE.INFO,
+			ChatBox.FILTER.PUBLIC_LOG
+		);
 		if(Session.TouchTargeting){
 			
 			MobileUI.ui.find('#toggleTargetingButton').removeClass('active');

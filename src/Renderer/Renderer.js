@@ -206,18 +206,19 @@ define(function( require )
 
 		width  = window.innerWidth  || document.body.offsetWidth;
 		height = window.innerHeight || document.body.offsetHeight;
-
+		// 
 		Mouse.screen.width  = this.width  = width;
 		Mouse.screen.height = this.height = height;
 
 		quality = Configs.get('quality', 100) / 100;
 		width  *= quality;
 		height *= quality;
-
+		
 		this.canvas.width         = width;
 		this.canvas.height        = height;
 		this.canvas.style.width   = this.width + 'px';
 		this.canvas.style.height  = this.height + 'px';
+		
 
 		this.gl.viewport( 0, 0, width, height );
 
@@ -225,17 +226,6 @@ define(function( require )
 
 		Background.resize( this.width, this.height );
 
-		/*
-		* Note about this hack:
-		 * require.js parse function and search for "require()" string.
-		 * Once done, it get the files to use as dependencies for this function and
-		 * load them before executing the function.
-		 *
-		 * As UI/UIManager was loaded as dependencies before Renderer/Renderer
-		 * and in the file UI/UIManager, there were a dependencies for Renderer/Renderer,
-		 * we just cause a big circular dependencies resulting as having Renderer variable as null in
-		 * UI/UIManager.
-		 */
 		getModule('UI/UIManager').fixResizeOverflow( this.width, this.height );
 	};
 

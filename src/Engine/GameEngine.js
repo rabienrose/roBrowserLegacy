@@ -35,6 +35,7 @@ define(function( require )
 	var Intro       = require('UI/Components/Intro/Intro');
 	var WinList     = require('UI/Components/WinList/WinList');
 	var ConsoleManager = require ('Utils/ConsoleManager');
+	var Debug = require('Utils/Debug');
 
 
 	/**

@@ -64,6 +64,9 @@ window.roInitSpinner = {
 
 // Add spinner before starting the require chain to let the user know things are happening in the background
 window.roInitSpinner.add();
+// Send a hello world debug message to server
+
+
 
 // Errors Handler (hack)
 require.onError = function (err) {

@@ -13,8 +13,8 @@ requirejs.config({
 	baseUrl: '../'
 });
 
-require(['Core/FileManager', 'Core/FileSystem', 'Loaders/MapLoader'],
-function(      FileManager,        FileSystem,           MapLoader )
+require(['Core/FileManager', 'Loaders/MapLoader'],
+function(      FileManager,           MapLoader )
 {
 	'use strict';
 
@@ -57,43 +57,8 @@ function(      FileManager,        FileSystem,           MapLoader )
 				if (msg.data.substr(-1) !== '/') {
 					msg.data += '/';
 				}
-
+				console.log(msg.data);
 				FileManager.remoteClient = msg.data;
-				break;
-
-
-			// Save full client and use it
-			case 'CLIENT_INIT':
-				FileSystem.bind('onprogress', function(progress){
-					postMessage({ type:'CLIENT_SAVE_PROGRESS', data:progress });
-				});
-
-				// full client saved !
-				FileSystem.bind('onuploaded', function(){
-					postMessage({ type:'CLIENT_SAVE_COMPLETE' });
-				});
-
-				FileManager.onGameFileLoaded = function(filename){
-					sendLog('Success to load GRF file "' + filename + '"');
-				};
-
-				FileManager.onGameFileError = function(filename, error){
-					sendError('Error loading GRF file "' + filename + '" : ' + error);
-				};
-
-				// Start loading GRFs files
-				FileSystem.bind('onready', function(){
-					FileManager.clean();
-					FileManager.init( msg.data.grfList );
-
-					postMessage({
-						uid:       msg.uid,
-						arguments: [ FileManager.gameFiles.length, null, msg.data ]
-					});
-				});
-
-				// Saving full client
-				FileSystem.init( msg.data.files, msg.data.save, msg.data.quota );
 				break;
 
 			// Files alias

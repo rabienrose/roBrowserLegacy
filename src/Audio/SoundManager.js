@@ -58,6 +58,7 @@ function(      Client,          Preferences,              Memory,          glMat
 	 * @param {optional|number} vol (volume)
 	 */
 	SoundManager.play = function play( filename, vol ) {
+		
 		var volume;
 		
 		// Sound volume * Global volume
@@ -92,6 +93,7 @@ function(      Client,          Preferences,              Memory,          glMat
 		
 		// Get the sound from client.
 		Client.loadFile( 'data/wav/' + filename, function( url ) {
+			
 			var sound;
 			if (!(filename in _sounds)){
 				return;

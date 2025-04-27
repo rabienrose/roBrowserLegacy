@@ -111,7 +111,6 @@ define(function (require) {
 	 */
 	function onEntitySpam(pkt) {
 		var entity = EntityManager.get(pkt.GID);
-
 		if (entity) {
 			entity.set(pkt);
 		}

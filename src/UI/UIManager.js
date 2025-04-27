@@ -147,6 +147,7 @@ define(function( require )
 	 */
 	UIManager.showErrorBox = function showErrorBox( text )
 	{
+
 		var WinError, overlay;
 
 		// Create popup

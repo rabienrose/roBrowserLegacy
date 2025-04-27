@@ -87,7 +87,7 @@ define(function( require )
 
 			// Fail to connect...
 			if (!success) {
-				UIManager.showErrorBox( DB.getMessage(1) );
+				// UIManager.showErrorBox( DB.getMessage(1) );
 				return;
 			}
 

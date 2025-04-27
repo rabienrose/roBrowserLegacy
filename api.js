@@ -371,6 +371,7 @@
 				frame.height       = this.config.height;
 				frame.style.border = 'none';
 
+
 				frame.setAttribute('allowfullscreen', 'true');
 				frame.setAttribute('webkitallowfullscreen', 'true');
 				frame.setAttribute('mozallowfullscreen', 'true');

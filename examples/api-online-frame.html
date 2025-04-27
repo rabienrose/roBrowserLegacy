@@ -10,26 +10,27 @@
 					target:        document.getElementById("robrowser"),
 					type:          ROBrowser.TYPE.FRAME,
 					application:   ROBrowser.APP.ONLINE,
-					remoteClient:  "http://grf.robrowser.com/",
+					remoteClient:  "http://192.168.1.228:3338/",
 					width:          800,
 					height:         600,
 					development:    true,
 					servers: [{
 						display:     "Demo Server",
 						desc:        "roBrowser's demo server",
-						address:     "5.135.190.4",
-						port:        7000,
+						address:     "192.168.1.228",
+						port:        6900,
 						version:     25,
 						langtype:    12,
+						renewal:      false, 
 						packetver:   20131223,
 						forceUseAddress: false,
-						packetKeys:  true,
-						socketProxy: "ws://5.135.190.4:443/",
-						adminList:   [2000000]
+						packetKeys:  false,
+						socketProxy: "ws://192.168.1.228:443/"
 					}],
+					saveFiles: false,
 					packetDump:  false,
 					skipServerList:  true,
-					skipIntro:       false,
+					skipIntro:       true,
 				};
 				var RO = new ROBrowser(ROConfig);
 				RO.start();
